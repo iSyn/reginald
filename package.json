@@ -1,8 +1,8 @@
 {
-  "name": "project-template",
+  "name": "reginald",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/iSyn/project-template.git",
+  "repository": "https://github.com/iSyn/reginald.git",
   "author": "Synclair Wang <synclairwang11@yahoo.com>",
   "license": "MIT",
   "devDependencies": {
@@ -11,8 +11,5 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-plumber": "^1.2.0",
     "gulp-sass": "^4.0.1"
-  },
-  "dependencies": {
-    "dotenv": "^7.0.0"
   }
 }
