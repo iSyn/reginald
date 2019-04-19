@@ -1,9 +1,118 @@
+$chart-container-width: 40%;
+$table-container-width: 60%;
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+.positive {
+    color: green;
+}
 
-@import './common/variables';
-@import './common/mixins';
+.negative {
+    color: red;
+}
 
-@import './pages/home';
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Roboto';
+}
 
-@import './templates/header';
+header {
+    padding: 10px;
+    background: #262d3d;
+    margin-bottom: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    color: white;
+
+    h1 {
+        font-weight: 300;
+    }
+
+    form {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        background: #384154;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+
+        p, input {
+            padding: 10px;
+            font-weight: 200;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        p {
+            background: #333a48;
+            color: #aaa;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            color: white;
+            background: transparent;
+        }
+
+        i {
+            opacity: .5;
+            padding-right: 10px;
+        }
+    }
+}
+
+.tables-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+
+    .left {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        width: $table-container-width;
+        max-height: 600px;
+        overflow: auto;
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid #d6d6d6;
+            // margin-left: 5px;
+        
+            tr {
+        
+                &:nth-child(even) {
+                    background: #f1f2f7;
+                }
+        
+                th {
+                    font-weight: 400;
+                    height: 50px;
+                }
+        
+                td, th {
+                    padding: 2px 3px;
+                    width: 90px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .right {
+        width: $chart-container-width;
+
+        .predictions {
+            border: 1px solid lightgray;
+            text-align: center;
+            padding: 10px;
+
+            h1 {
+                font-weight: 400;
+            }
+        }
+    }
+}
+

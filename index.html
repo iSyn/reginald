@@ -3,16 +3,43 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>PROJECT TEMPLATE</title>
+        <title>Reginald</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="./app/css/styles.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
     </head>
 
     <body>
 
-        <h1>PROJECT TEMPLATE</h1>
+        <header>
+            <h1>Reginald</h1>
+            <form id='amount_of_days'>
+                <p>days</p>
+                <input type="text">
+                <i class="far fa-calendar-alt"></i>
+            </form>
+        </header>
 
-        <script src="./app/js/helper_functions.js"></script>
+        <div class="tables-container">
+            <div class="left">
+                <table class='table1'></table>
+                <table class='table2'></table>
+            </div>
+            <div class="right">
+                <div class='predictions'>
+                    <h1>Predictions</h1>
+                    <div class="prediction-contents"></div>
+                </div>
+                <canvas class='main-chart' height='200' width='300'></canvas>
+            </div>
+        </div>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js'></script>
+        <script src="./app/js/papaparse.js"></script>
+        <script src="./app/js/hidden_shit.js"></script>
+        <script src='./app/js/helper_functions.js'></script>
+        <script src='./app/data/csv.js'></script>
         <script src="./app/js/scripts.js"></script>
     </body>
 </html>
