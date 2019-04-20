@@ -1,3 +1,36 @@
+let search_ticker = async ( ticker ) => {
+
+    let data = await retrieve_ticker_info( ticker )
+    
+    console.log( 'data', data)
+}
+
+let retrieve_ticker_info = async ( ticker ) => {
+
+    return new Promise( resolve => {
+
+        const TIME_TIL_REFRESH = 12 * 60 * 60 * 1000
+        let time_series_type = 'TIME_SERIES_DAILY_ADJUSTED'
+        let data = JSON.parse( localStorage.getItem( `${ticker}` ) )
+
+        if ( !data || Date.now() > data.timestamp + TIME_TIL_REFRESH ) {
+            console.log('FETCHING NEW INFO')
+            fetch( `${ALPHA_VANTAGE_API_URL}function=${time_series_type}&symbol=${ticker}&apikey=${ALPHA_VANTAGE_API_KEY}` )
+                .then( res => res.json() )
+                .then( res => {
+                    data = { ...res, timestamp: Date.now() }
+                    localStorage.setItem( `${ticker}`, JSON.stringify( data ) )
+
+                    console.log(' RESOLVING DATA')
+                    resolve( data )
+                })
+        } else {
+
+            resolve( data )
+        }
+    })
+}
+
 let build_tables = ( d ) => {
 
     // Build Table1
@@ -213,15 +246,13 @@ build_chart( data )
 build_predictions( data )
 
 
-s('form#amount_of_days').addEventListener('submit', (e) => {
+s('form#ticker_form').addEventListener('submit', (e) => {
 
     e.preventDefault()
-
     let input = s('input')
 
-    if (input.value >= 3) {
-        build_chart(data, input.value)
-    }
+
+    search_ticker( input.value )
 
     input.value = ''
 
